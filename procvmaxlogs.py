@@ -1,4 +1,6 @@
 from sys import platform as _platform
+import sys
+
 #
 #  This is some hokey code but it works.  Code should clean up and eliminate
 #  header properly but if not you'll need to delete them and rerun.
@@ -18,12 +20,12 @@ with open(filename, 'r') as infile:
 # open output file    
 ofile = open(filename + "_out",'w')
 
-#process data
+# Process Data
 my_list = data.splitlines()
 if wtype == "1":
     # write header
     ofile.write("Record Number%Time%Host Name%OS Name%Client Host%Function Class%Action Code%"+ \
-            "Text%Username\n")
+                "Text%Username\n")
     for line in my_list:
         s = line.split(":")
         if ("              A U D I T   L O G   D A T A" in s) or (line == ""):
@@ -48,7 +50,7 @@ if wtype == "1":
 elif wtype == "2":
     # write header
     ofile.write("Time%Director%Source%Category%Severity%Numeric Code%"+ \
-            "Event Code Symbol%Description\n")
+                "Event Code Symbol%Description\n")
     for line in my_list:
         s = line.split(":")
         if ("Symmetrix ID" in s) or (line == ""):
