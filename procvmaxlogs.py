@@ -34,9 +34,8 @@ if wtype == "1":
             header = s[0].strip()
             data = s[1].strip()
             if header == "Record Number" or header == "Host Name" \
-            or header == "OS Name" or header == "Client Host" \
-            or header == "Function Class" \
-            or header == "Action Code":
+                or header == "OS Name" or header == "Client Host" \
+                    or header == "Function Class" or header == "Action Code":
                 ofile.write(data + "%")
             if header == "Time":
                 data = data + ":" + s[2]+ ":" + s[3]
@@ -49,7 +48,7 @@ if wtype == "1":
                 ofile.write(d2 + "\n")
 elif wtype == "2":
     # write header
-    ofile.write("Time%Director%Source%Category%Severity%Numeric Code%"+ \
+    ofile.write("Time%Director%Source%Category%Severity%Numeric Code%" +
                 "Event Code Symbol%Description\n")
     for line in my_list:
         s = line.split(":")
